@@ -1,9 +1,13 @@
 import {HomeComponent} from './home/home.component';
 
-export const Pages = [
+export const Pages = {
+    HomeComponent
+};
+
+export const PageRegistry = [
     HomeComponent
 ];
 
-export const Page = {
-    HomeComponent
-};
+export const PageProviders = [
+
+];

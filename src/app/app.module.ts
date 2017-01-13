@@ -3,8 +3,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { Components } from './components/index';
-import { Pages } from './pages/index';
+import { ComponentRegistry, ComponentProviders } from './components/index';
+import { PageRegistry, PageProviders } from './pages/index';
 import { routes } from './app.router';
 
 @NgModule({
@@ -14,14 +14,16 @@ import { routes } from './app.router';
     ],
     declarations: [
         AppComponent,
-        ...Components,
-        ...Pages
+        ...ComponentRegistry,
+        ...PageRegistry
     ],
     providers: [
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
-        }
+        },
+        ...ComponentProviders,
+        ...PageProviders
     ],
     bootstrap: [ AppComponent ]
 })
