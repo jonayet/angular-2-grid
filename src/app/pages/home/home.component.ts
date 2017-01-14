@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IGridColumn} from '../../components/grid/IGridColumn';
 import {HomeService} from './home.service';
 
@@ -8,7 +8,7 @@ import {HomeService} from './home.service';
     styleUrls: ['./home.style.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
     columns: IGridColumn[] = [
         {
             header: "City",
@@ -16,15 +16,18 @@ export class HomeComponent {
         },
         {
             header: "Start Date",
-            dataField: "start_date"
+            dataField: "start_date",
+            dataType: "date"
         },
         {
             header: "End Date",
-            dataField: "end_date"
+            dataField: "end_date",
+            dataType: "date"
         },
         {
             header: "Price",
-            dataField: "price"
+            dataField: "price",
+            dataType: "number"
         },
         {
             header: "Status",
@@ -36,11 +39,15 @@ export class HomeComponent {
             dataType: "color"
         }
     ];
-    rows: any[] = [];
+    data: any[] = [];
 
     constructor(private homeService: HomeService) {
-         homeService.getGridData().subscribe((data)=>{
-             this.rows = data;
-         });
+
+    }
+
+    ngOnInit() {
+        this.homeService.getGridData().subscribe((data)=>{
+            this.data = data;
+        });
     }
 }

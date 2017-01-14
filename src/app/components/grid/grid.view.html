@@ -3,7 +3,15 @@
     <table class="table table-hover">
         <thead>
             <tr class="row">
-                <th *ngFor="let column of columns" class="col-md-2">{{column.header}}</th>
+                <th *ngFor="let column of columns" (click)="sortData(column)" class="col-md-2">
+                    {{column.header}}
+                    <i *ngIf="isDescendingOrder(column) == false">
+                        &uarr;
+                    </i>
+                    <i *ngIf="isDescendingOrder(column) == true">
+                        &darr;
+                    </i>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -12,7 +20,7 @@
                     <div *ngIf="column.dataType == 'color'">
                         <div [ngStyle]="{'background': row[column.dataField]}" class="grid_color-col"></div>
                     </div>
-                    <div *ngIf="!column.dataType">
+                    <div *ngIf="column.dataType != 'color'">
                         {{row[column.dataField]}}
                     </div>
                 </td>
