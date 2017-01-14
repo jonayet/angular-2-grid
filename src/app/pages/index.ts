@@ -1,4 +1,5 @@
 import {HomeComponent} from './home/home.component';
+import {HomeService} from './home/home.service';
 
 export const Pages = {
     HomeComponent
@@ -9,5 +10,5 @@ export const PageRegistry = [
 ];
 
 export const PageProviders = [
-
+    HomeService
 ];

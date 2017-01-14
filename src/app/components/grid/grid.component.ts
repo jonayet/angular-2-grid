@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IGridColumn} from './IGridColumn';
 
 @Component({
     selector: 'grid',
@@ -6,8 +7,14 @@ import {Component} from '@angular/core';
     styleUrls: ['./grid.style.css']
 })
 export class GridComponent {
-    content: string = 'Grid';
+    @Input() rows: any[];
+    @Input() columns: IGridColumn[];
+
     constructor() {
 
+    }
+
+    trackRow(index: number, item: any): number {
+        return item.id;
     }
 }

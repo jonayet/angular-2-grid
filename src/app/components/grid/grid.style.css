@@ -1,3 +1,7 @@
 .grid{
 
 }
+
+.grid .grid_color-col{
+    height: 1em;
+}

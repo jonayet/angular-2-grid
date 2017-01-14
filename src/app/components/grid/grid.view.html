@@ -1,3 +1,22 @@
 <div class="grid">
     {{content}}
+    <table class="table table-hover">
+        <thead>
+            <tr class="row">
+                <th *ngFor="let column of columns" class="col-md-2">{{column.header}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows; trackBy: trackRow" class="row">
+                <td *ngFor="let column of columns" class="col-md-2">
+                    <div *ngIf="column.dataType == 'color'">
+                        <div [ngStyle]="{'background': row[column.dataField]}" class="grid_color-col"></div>
+                    </div>
+                    <div *ngIf="!column.dataType">
+                        {{row[column.dataField]}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
