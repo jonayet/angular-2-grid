@@ -5,3 +5,11 @@
 .grid .grid_color-col{
     height: 1em;
 }
+
+.grid .grid_header{
+    cursor: pointer;
+}
+
+.grid .grid_sort-icon{
+    font-weight: bold;
+}

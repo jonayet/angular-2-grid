@@ -1,3 +1,4 @@
 <div class="home">
+    <date-range (onStartDateChange)="onStartDateChange($event)" (onEndDateChange)="onEndDateChange($event)"></date-range>
     <grid [columns]="columns" [data]="data"></grid>
 </div>

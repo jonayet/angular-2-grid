@@ -19,8 +19,10 @@ export class GridComponent implements OnChanges{
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        const data = changes['data'].currentValue;
-        this.rows = this.gridService.sortData(data, 'color', 'color', false);
+        const data = changes['data'];
+        if(data) {
+            this.rows = this.gridService.sortData(data.currentValue, 'color', 'color', false);
+        }
     }
 
     sortData(column: IGridColumn) {

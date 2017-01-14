@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit{
         }
     ];
     data: any[] = [];
+    originalData: any[] = [];
 
     constructor(private homeService: HomeService) {
 
@@ -47,7 +48,24 @@ export class HomeComponent implements OnInit{
 
     ngOnInit() {
         this.homeService.getGridData().subscribe((data)=>{
-            this.data = data;
+            this.originalData = data;
+            this.data = this.originalData.map((d) => {
+                return d;
+            });
+        });
+    }
+
+    onStartDateChange(date: Date){
+        this.data = this.originalData.filter(function (row) {
+            let startDate = new Date(row['start_date']);
+            return startDate > date;
+        });
+    }
+
+    onEndDateChange(date: Date){
+        this.data = this.originalData.filter(function (row) {
+            let endDate = new Date(row['start_date']);
+            return endDate < date;
         });
     }
 }
