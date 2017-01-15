@@ -1,5 +1,7 @@
 <div class="jumbotron">
     <h2 class="text-center">etventure Assignment : Form</h2>
+    <hr>
+    <br>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
         <div class="form-group" [ngClass]="{'has-error': userForm.controls['email'].touched && !userForm.controls['email'].valid}">
             <label for="email">Email address:</label>

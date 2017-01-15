@@ -1,6 +1,8 @@
 <div class="home">
     <div class="jumbotron">
         <h2 class="text-center">etventure Assignment : Grid</h2>
+        <hr>
+        <br>
         <button class="btn btn-primary pull-right" (click)="showForm()">Show Form</button>
         <date-range (onStartDateChange)="onStartDateChange($event)" (onEndDateChange)="onEndDateChange($event)"></date-range>
         <grid [columns]="columns" [data]="data"></grid>
