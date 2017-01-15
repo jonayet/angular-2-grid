@@ -1,12 +1,15 @@
 import {HomeComponent} from './home/home.component';
 import {HomeService} from './home/home.service';
+import {UserFormComponent} from './user-form/user-form.component';
 
 export const Pages = {
-    HomeComponent
+    HomeComponent,
+    UserFormComponent
 };
 
 export const PageRegistry = [
-    HomeComponent
+    HomeComponent,
+    UserFormComponent
 ];
 
 export const PageProviders = [

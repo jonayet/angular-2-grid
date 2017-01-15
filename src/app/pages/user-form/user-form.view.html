@@ -1,0 +1,38 @@
+<div class="jumbotron">
+    <h2 class="text-center">etventure Assignment : Form</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group" [ngClass]="{'has-error': userForm.controls['email'].touched && !userForm.controls['email'].valid}">
+            <label for="email">Email address:</label>
+            <input id="email" type="email" class="form-control"
+                   placeholder="email. i.e: email@gmail.com"
+                   name="email"
+                   [formControl]="userForm.controls['email']">
+            <small class="text-danger" *ngIf="userForm.controls['email'].touched && userForm.controls['email'].hasError('required')">a valid email is required.</small>
+            <small class="text-danger" *ngIf="userForm.controls['email'].touched && userForm.controls['email'].hasError('invalidEmail')">email is not valid.</small>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': userForm.controls['password'].touched && !userForm.controls['password'].valid}">
+            <label for="password">Password:</label>
+            <input id="password" type="password" class="form-control"
+                   placeholder="password, minimum length: 8 "
+                   name="password"
+                   [formControl]="userForm.controls['password']">
+            <small class="text-danger" *ngIf="userForm.controls['email'].touched && userForm.controls['password'].hasError('required')">a valid password is required.</small>
+            <small class="text-danger" *ngIf="userForm.controls['email'].touched && userForm.controls['password'].hasError('minlength')">password length must be at least 8.</small>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': userForm.controls['password'].touched && !userForm.controls['confirmedPassword'].valid}">
+            <label for="confirmedPassword">Confirm Password:</label>
+            <input id="confirmedPassword" type="password" class="form-control"
+                   placeholder="confirm password"
+                   name="confirmedPassword"
+                   [formControl]="userForm.controls['confirmedPassword']">
+            <small class="text-danger" *ngIf="userForm.controls['confirmedPassword'].touched && userForm.controls['confirmedPassword'].hasError('required')">can't be empty.</small>
+            <small class="text-danger" *ngIf="userForm.controls['confirmedPassword'].touched && userForm.controls['confirmedPassword'].hasError('minlength')">length must be at least 8.</small>
+            <small class="text-danger" *ngIf="userForm.controls['confirmedPassword'].touched && userForm.hasError('passwordMissMatched')">didn't match.</small>
+        </div>
+        <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+        <button type="submit" class="btn btn-default" [disabled]="!userForm.valid">Submit</button>
+        <div class="alert alert-success" *ngIf="showSuccess">
+            <strong>Success!</strong>
+        </div>
+    </form>
+</div>

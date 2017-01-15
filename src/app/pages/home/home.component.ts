@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {IGridColumn} from '../../components/grid/IGridColumn';
 import {HomeService} from './home.service';
 
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit{
     private startDate;
     private endDate;
 
-    constructor(private homeService: HomeService) {
+    constructor(private homeService: HomeService, private router: Router) {
 
     }
 
@@ -64,6 +65,10 @@ export class HomeComponent implements OnInit{
         this.endDate = date;
         this.data = this.filterDate(this.originalData, this.startDate, this.endDate);
 
+    }
+
+    showForm(){
+        this.router.navigate(['/user-form']);
     }
 
     private filterDate(src: Object[], startDate: Date, endDate: Date){
