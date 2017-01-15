@@ -1,4 +1,11 @@
-<div class="date-range">
-    Start Date: <input type="date" [ngModel]="startDateString" (ngModelChange)="_onStartDateChange($event)">
-    End Date: <input type="date" [ngModel]="endDateString" (ngModelChange)="_onEndDateChange($event)">
+<div class="date-range row">
+    <div class="form-group col-xs-6 col-sm-6 col-md-3 col-lg-3 col-md-offset-3 col-lg-offset-3">
+        <label for="start-date">Start Date: </label>
+        <input id="start-date" class="form-control" type="date" [ngModel]="startDateString" (ngModelChange)="_onStartDateChange($event)">
+    </div>
+
+    <div class="form-group col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <label for="end-date">End Date:</label>
+        <input id="end-date" class="form-control" type="date" [ngModel]="endDateString" (ngModelChange)="_onEndDateChange($event)">
+    </div>
 </div>
