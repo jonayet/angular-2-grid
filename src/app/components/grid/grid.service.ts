@@ -8,8 +8,8 @@ export class GridService {
 
     }
 
-    sortData(data: any[], fieldName: string, fieldType: string, descendingOrder: boolean = false): any[] {
-        let sortedData: any = [];
+    sortData(data: Object[], fieldName: string, fieldType: string, descendingOrder: boolean = false): Object[] {
+        let sortedData: Object[] = [];
         switch (fieldType){
             case 'date':
                 sortedData = data.sort((rowA, rowB) => {

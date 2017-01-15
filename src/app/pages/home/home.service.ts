@@ -8,7 +8,7 @@ export class HomeService {
 
     }
 
-    getGridData(): Observable<any[]> {
+    getGridData(): Observable<Object[]> {
         return this.http.request('src/data.json')
             .map(res => res.json());
     }

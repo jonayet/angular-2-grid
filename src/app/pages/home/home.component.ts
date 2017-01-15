@@ -39,8 +39,10 @@ export class HomeComponent implements OnInit{
             dataType: "color"
         }
     ];
-    data: any[] = [];
-    originalData: any[] = [];
+    data: Object[] = [];
+    originalData: Object[] = [];
+    private startDate;
+    private endDate;
 
     constructor(private homeService: HomeService) {
 
@@ -49,23 +51,33 @@ export class HomeComponent implements OnInit{
     ngOnInit() {
         this.homeService.getGridData().subscribe((data)=>{
             this.originalData = data;
-            this.data = this.originalData.map((d) => {
-                return d;
-            });
+            this.data = Object.assign(this.data, this.originalData);
         });
     }
 
     onStartDateChange(date: Date){
-        this.data = this.originalData.filter(function (row) {
-            let startDate = new Date(row['start_date']);
-            return startDate > date;
-        });
+        this.startDate = date;
+        this.data = this.filterDate(this.originalData, this.startDate, this.endDate);
     }
 
     onEndDateChange(date: Date){
-        this.data = this.originalData.filter(function (row) {
-            let endDate = new Date(row['start_date']);
-            return endDate < date;
+        this.endDate = date;
+        this.data = this.filterDate(this.originalData, this.startDate, this.endDate);
+
+    }
+
+    private filterDate(src: Object[], startDate: Date, endDate: Date){
+        return src.filter(function (row) {
+            let rowStartDate = new Date(row['start_date']);
+            let rowEndDate = new Date(row['end_date']);
+            let result = true;
+            if(startDate){
+                result = result && rowStartDate >= startDate;
+            }
+            if(endDate){
+                result = result && rowEndDate <= endDate;
+            }
+            return result;
         });
     }
 }

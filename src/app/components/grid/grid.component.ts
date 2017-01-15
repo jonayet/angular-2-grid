@@ -9,9 +9,9 @@ import {GridService} from './grid.service';
 })
 export class GridComponent implements OnChanges{
     @Input() columns: IGridColumn[];
-    @Input() data: any[];
+    @Input() data: Object[];
 
-    rows: any[] = [];
+    rows: Object[] = [];
     orderMap: Map<string, boolean|undefined> = new Map<string, boolean|undefined>();
 
     constructor(private gridService : GridService) {
