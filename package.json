@@ -1,7 +1,7 @@
 {
-  "name": "etventure-assignment",
+  "name": "etventure-front-end-challenge",
   "version": "1.0.0",
-  "description": "etventure Assignment.",
+  "description": "etventure Front-End Challenge.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js --inline --progress --port 8080",
