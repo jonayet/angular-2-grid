@@ -8,14 +8,14 @@ export class GridService {
 
     }
 
-    sortData(data: Object[], fieldName: string, fieldType: string, descendingOrder: boolean = false): Object[] {
+    sortData(data: Object[], fieldName: string, fieldType: string = '', descendingOrder: boolean = false): Object[] {
         let sortedData: Object[] = [];
         switch (fieldType){
             case 'date':
                 sortedData = data.sort((rowA, rowB) => {
                     const dateA = new Date(rowA[fieldName]);
                     const dateB = new Date(rowB[fieldName]);
-                    if(descendingOrder) {
+                    if(!descendingOrder) {
                         return dateB.getTime() - dateA.getTime();
                     } else {
                         return dateA.getTime() - dateB.getTime();
@@ -26,7 +26,7 @@ export class GridService {
                 sortedData = data.sort((rowA, rowB) => {
                     const number1 = Number(rowA[fieldName]);
                     const number2 = Number(rowB[fieldName]);
-                    if(descendingOrder) {
+                    if(!descendingOrder) {
                         return number1 - number2;
                     } else {
                         return number2 - number1;
@@ -37,7 +37,7 @@ export class GridService {
                 sortedData = data.sort((rowA, rowB) => {
                     const color1 = sc_color(rowA[fieldName]).hue();
                     const color2 = sc_color(rowB[fieldName]).hue();
-                    if(descendingOrder) {
+                    if(!descendingOrder) {
                         return color1 - color2;
                     } else {
                         return color2 - color1;
@@ -46,7 +46,7 @@ export class GridService {
                 break;
             default:
                 sortedData = data.sort((rowA, rowB) => {
-                    if(descendingOrder) {
+                    if(!descendingOrder) {
                         return rowA[fieldName].localeCompare(rowB[fieldName]);
                     } else {
                         return rowB[fieldName].localeCompare(rowA[fieldName]);

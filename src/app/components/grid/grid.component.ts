@@ -21,7 +21,7 @@ export class GridComponent implements OnChanges{
     ngOnChanges(changes: SimpleChanges) {
         const data = changes['data'];
         if(data) {
-            this.rows = this.gridService.sortData(data.currentValue, 'color', 'color', false);
+            this.rows = data.currentValue;
         }
     }
 
@@ -33,12 +33,13 @@ export class GridComponent implements OnChanges{
         return item.id;
     }
 
-    private isDescendingOrder(column: IGridColumn): boolean {
+    isDescendingOrder(column: IGridColumn): boolean {
         return this.orderMap.get(column.dataField);
     }
 
     private toggleSortOrder(column: IGridColumn): boolean {
-        this.orderMap.set(column.dataField, !this.orderMap.get(column.dataField));
-        return this.orderMap.get(column.dataField);
+        const lastOrder = this.isDescendingOrder(column);
+        this.orderMap.set(column.dataField, !lastOrder);
+        return lastOrder;
     }
 }
