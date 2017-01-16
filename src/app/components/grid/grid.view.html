@@ -5,10 +5,10 @@
                 <th *ngFor="let column of columns" (click)="sortData(column)" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 grid_header">
                     {{column.header}}
                     <i *ngIf="isDescendingOrder(column) == false" class="grid_sort-icon">
-                        &darr;
+                        &uarr;
                     </i>
                     <i *ngIf="isDescendingOrder(column) == true" class="grid_sort-icon">
-                        &uarr;
+                        &darr;
                     </i>
                 </th>
             </tr>
