@@ -1,10 +1,12 @@
 <div class="home">
     <div class="jumbotron">
-        <h2 class="text-center">etventure Assignment : Grid</h2>
+        <h2 class="text-center">etventure Front-End Challenge : Grid</h2>
         <hr>
         <br>
         <div class="row">
-            <button class="btn btn-primary" (click)="showForm()">Show Form</button>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button class="btn btn-primary" (click)="showForm()">Show Form</button>
+            </div>
         </div>
         <date-range (onStartDateChange)="onStartDateChange($event)" (onEndDateChange)="onEndDateChange($event)"></date-range>
         <grid [columns]="columns" [data]="data"></grid>

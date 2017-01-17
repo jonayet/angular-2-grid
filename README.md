@@ -17,9 +17,9 @@ https://jonayet.github.io/angular-2-grid
 # Run Instructions
 * Prebuilt files are including 'index.html' and files inside the 'build' folder.
 * Start any 'http-server' in the root directory and load the page.
-* Source files are inside the 'src' folder.
  
 # Development Instructions
+* Source files are inside the 'src' folder.
 * Install dependencies first, 'npm install'
 * Run development mode, 'npm start'
 * Run test suits, 'npm run test'
