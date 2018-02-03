@@ -1,4 +1,4 @@
-# etventure Front-End Challenge
+# Angular 2 Grid
 Form with email and password validation.
 
 # Functionalities

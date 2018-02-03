@@ -1,4 +1,4 @@
-#etventure Front-End Challenge
+#Angular 2 Grid
 
 1. Use the `data.json` file to create a responsive bootstrap grid with headers **city**, **start date**, **end date**, **price**, **status**, **color**.  All the Columns should be sortable.  
 
